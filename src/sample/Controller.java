@@ -17,23 +17,25 @@ public class Controller {
 
     @FXML
     GridPane gp_board;
+    Game game = new Game();
 
     public void fillGrid(ActionEvent actionEvent) {
 
-        Game game = new Game();
-        game.addLivingCell();
+        game.update();
+
         for (int i = 0; i < Game.BOARDSIZEX; i++) {
             for (int j = 0; j < Game.BOARDSIZEY; j++) {
                 if(game.getBoard()[i][j].isAlive()){
                     gp_board.add(new Rectangle(24,18, Color.valueOf("RED")), i,j);
                 } else {
-                    gp_board.add(new Rectangle(24,18, Color.valueOf("BLUE")), i,j);
+                    gp_board.add(new Rectangle(24,18, Color.valueOf("BLACK")), i,j);
                 }
             }
         }
     }
 
     public void stop(ActionEvent actionEvent) {
+        game.addLivingCell();
 
     }
 }
