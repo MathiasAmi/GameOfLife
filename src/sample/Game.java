@@ -1,18 +1,20 @@
 package sample;
 
+import javafx.animation.Timeline;
+
 public class Game {
 
-    private static final int BOARDSIZEX = 25;
-    private static final int BOARDSIZEY = 25;
+    //////////////////////////////////////// CONSTANTS ///////////////////////////////////////
+    public static final int BOARDSIZEX = 25;
+    public static final int BOARDSIZEY = 25;
 
 
-    Cell[][] board = new Cell[BOARDSIZEX][BOARDSIZEY];
+    private Cell[][] board = new Cell[BOARDSIZEX][BOARDSIZEY];
 
     public Game(){
 
         for (int i = 0; i < BOARDSIZEX ; i++) {
             for (int j = 0; j < BOARDSIZEY ; j++) {
-
                 board[i][j] = new Cell();
 
             }
@@ -20,13 +22,30 @@ public class Game {
         }
     }
 
-    public void addLivingCell(int living){
+    public void update(){
 
-        int[] amountOfLiving = new int[living];
+    }
 
-        for (Integer i : amountOfLiving){
-            
+    public void addLivingCell(){
+
+        for (int i = 0; i < BOARDSIZEX ; i++) {
+            for (int j = 0; j < BOARDSIZEY ; j++) {
+                int temp = (int) (Math.random()*1.04);
+
+                if (temp == 0){
+                    board[i][j].setAlive(false);
+                } else  board [i][j].setAlive(true);
+            }
+
         }
 
+    }
+
+    public Cell[][] getBoard() {
+        return board;
+    }
+
+    public void setBoard(Cell[][] board) {
+        this.board = board;
     }
 }

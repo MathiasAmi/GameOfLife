@@ -2,12 +2,10 @@ package sample;
 
 public class Cell {
 
-    private int livingNeighbours;
-    private boolean alive;
+    private int livingNeighbours = 0;
+    private boolean alive = false;
 
     public Cell() {
-        livingNeighbours = 0;
-        alive = false;
     }
 
     public void update(){

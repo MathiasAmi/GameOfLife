@@ -1,36 +1,39 @@
 package sample;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 public class Controller {
 
+    @FXML
+    Button btn_start;
 
+    @FXML
+    Button btn_stop;
 
+    @FXML
+    GridPane gp_board;
 
-    public void test(ActionEvent actionEvent) {
+    public void fillGrid(ActionEvent actionEvent) {
 
+        Game game = new Game();
+        game.addLivingCell();
+        for (int i = 0; i < Game.BOARDSIZEX; i++) {
+            for (int j = 0; j < Game.BOARDSIZEY; j++) {
+                if(game.getBoard()[i][j].isAlive()){
+                    gp_board.add(new Rectangle(24,18, Color.valueOf("RED")), i,j);
+                } else {
+                    gp_board.add(new Rectangle(24,18, Color.valueOf("BLUE")), i,j);
+                }
+            }
+        }
+    }
 
-        Cell cell1 = new Cell(2,true);
-        Cell cell2 = new Cell(3,true);
-        Cell cell3 = new Cell(2, false);
-        Cell cell4 = new Cell(3,false);
-        Cell cell5 = new Cell(10, true);
-
-        cell1.update(); //Should turn out alive
-        cell2.update(); //Should turn out alive
-        cell3.update(); //Should turn out dead
-        cell4.update(); //Should turn out alive
-        cell5.update(); //Should turn out dead
-
-
-        System.out.println("Cell 1 is " + cell1.isAlive() + " and should be alive!");
-        System.out.println("Cell 2 is " + cell2.isAlive() + " and should be alive!");
-        System.out.println("Cell 3 is " + cell3.isAlive() + " and should be dead!");
-        System.out.println("Cell 4 is " + cell4.isAlive() + " and should be alive!");
-        System.out.println("Cell 5 is " + cell5.isAlive() + " and should be dead!");
-
-
-
+    public void stop(ActionEvent actionEvent) {
 
     }
 }
