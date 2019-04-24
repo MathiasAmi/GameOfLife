@@ -65,6 +65,7 @@
         </rowConstraints>
       </GridPane>
       <Button fx:id="btn_start" layoutX="75.0" layoutY="562.0" mnemonicParsing="false" onAction="#fillGrid" prefHeight="50.0" prefWidth="105.0" text="Start" />
-      <Button fx:id="btn_stop" layoutX="460.0" layoutY="562.0" mnemonicParsing="false" onAction="#stop" prefHeight="50.0" prefWidth="105.0" text="Stop" />
+      <Button fx:id="btn_stop" layoutX="286.0" layoutY="562.0" mnemonicParsing="false" onAction="#stop" prefHeight="50.0" prefWidth="105.0" text="Stop" />
+      <Button fx:id="btn_input" layoutX="488.0" layoutY="562.0" mnemonicParsing="false" onAction="#inputRandom" prefHeight="50.0" prefWidth="105.0" text="InputRandom" />
    </children>
 </AnchorPane>
